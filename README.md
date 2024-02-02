@@ -4,7 +4,7 @@
 * My customize code for iOS development that I stored to reuse and reference
 
 ### 1. UIKit
-- **Set bold `UILabel` text without change size**  
+- **`UILabel` setup text without change size**  
 ```Swift
 extension UILabel {
     func setBoldText() {    
@@ -12,6 +12,17 @@ extension UILabel {
             let boldFont = UIFont(descriptor: currentFont.fontDescriptor.withSymbolicTraits(.traitBold)!, size: currentFont.pointSize)
             self.font = boldFont
         }
+    }
+}
+```
+
+- **`UIButton` setup title with color**
+```Swift
+extension UIButton {
+    func setTitle(title: String, color: UIColor) {
+        self.setTitle(title, for: .normal)
+        self.setTitleColor(color, for: .normal)
+        self.setTitleColor(.darkGray, for: .highlighted)
     }
 }
 ```
