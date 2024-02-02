@@ -47,6 +47,7 @@ extension UIButton {
         self.configuration = configuration
     }
 }
+```
 
 - **Show Password Button**  
     - **Setup this for create `ShowPasswordButton`:**
