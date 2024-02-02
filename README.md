@@ -27,4 +27,25 @@ extension UIButton {
 }
 ```
 
+- **`UIButton` setup title font and size**
+```Swift
+extension UIButton {
+    func setTitle(fontName: String, size: CGFloat) {
+        var configuration = self.configuration ?? UIButton.Configuration.gray()
+        configuration.titleTextAttributesTransformer =
+        UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont(name: fontName, size: size)
+            
+            if let descriptor = outgoing.font?.fontDescriptor {
+                outgoing.font = UIFont(descriptor: descriptor.withSymbolicTraits(.traitBold)!, size: size)
+            }
+            
+            return outgoing
+        }
+        
+        self.configuration = configuration
+    }
+}
+
 #### Copyright &#169; 2024 tinit4ever
